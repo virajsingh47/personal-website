@@ -13,6 +13,12 @@ export const projects: Project[] = [
     icon: '/logos/Haven Logo_WhiteBackground.png',
   },
   {
+    name: 'AI Focus Group',
+    description: 'Created an AI focus group to simulate how different customer personas would react to a new product idea.',
+    url: 'https://persona-debate.vercel.app/',
+    icon: '🧑‍🤝‍🧑',
+  },
+  {
     name: 'Interview Practice',
     description: 'Built an AI interviewer to practice for job interviews.',
     url: 'https://interview-simulator-alpha.vercel.app/',
