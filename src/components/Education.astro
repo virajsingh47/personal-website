@@ -1,0 +1,31 @@
+---
+import { education } from '../data/education';
+---
+
+<section id="education" class="px-6 pb-16 max-w-2xl mx-auto">
+  <h2 class="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-5">
+    &#127891; Education
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    {education.map(school => (
+      <div class="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-4">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-lg bg-white border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-xl shrink-0 overflow-hidden">
+            {school.logo?.startsWith('http')
+              ? <img src={school.logo} alt={school.school} class="w-8 h-8 object-contain" />
+              : (school.logo ?? '🎓')}
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-medium text-neutral-900 dark:text-white">{school.school}</p>
+            <p class="text-xs text-neutral-500 mt-0.5">{school.degree}</p>
+
+            {school.description && (
+              <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-2 leading-relaxed">{school.description}</p>
+            )}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

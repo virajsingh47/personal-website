@@ -1,0 +1,36 @@
+---
+import { work } from '../data/work';
+---
+
+<section id="work" class="px-6 pb-16 max-w-2xl mx-auto">
+  <h2 class="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-5">
+    &#128188; Work Experience
+  </h2>
+
+  <div class="space-y-1">
+    {work.map(job => (
+      <a
+        href={job.url ?? '#'}
+        target={job.url && job.url !== '#' ? '_blank' : undefined}
+        rel="noopener noreferrer"
+        class="group flex items-start gap-4 rounded-xl p-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+      >
+        <div class="w-10 h-10 rounded-lg bg-white border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-xl shrink-0 overflow-hidden">
+          {job.logo?.startsWith('http')
+            ? <img src={job.logo} alt={job.company} class="w-8 h-8 object-contain" />
+            : (job.logo ?? '🏢')}
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center justify-between gap-2">
+            <p class="text-sm font-medium text-neutral-900 dark:text-white">{job.company}</p>
+            {job.period && (
+              <span class="text-xs text-neutral-400 dark:text-neutral-600 shrink-0">{job.period}</span>
+            )}
+          </div>
+          <p class="text-xs text-neutral-500 mt-0.5">{job.role}</p>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1.5 leading-relaxed">{job.description}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>

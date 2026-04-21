@@ -1,0 +1,35 @@
+---
+import { volunteering } from '../data/volunteering';
+---
+
+<section id="volunteering" class="px-6 pb-16 max-w-2xl mx-auto">
+  <h2 class="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-5">
+    🤝 Volunteering
+  </h2>
+
+  <div class="space-y-1">
+    {volunteering.map(role => (
+      <a
+        href={role.url ?? '#'}
+        target={role.url && role.url !== '#' ? '_blank' : undefined}
+        rel="noopener noreferrer"
+        class="group flex items-start gap-4 rounded-xl p-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+      >
+        <div class="w-10 h-10 rounded-lg bg-white border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-xl shrink-0 overflow-hidden">
+          {role.logo?.startsWith('http')
+            ? <img src={role.logo} alt={role.org} class="w-8 h-8 object-contain" />
+            : (role.logo ?? '🤝')}
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center justify-between gap-2">
+            <p class="text-sm font-medium text-neutral-900 dark:text-white">{role.org}</p>
+          </div>
+          <p class="text-xs text-neutral-500 mt-0.5">{role.role}</p>
+          {role.description && (
+            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1.5 leading-relaxed">{role.description}</p>
+          )}
+        </div>
+      </a>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Layout title={`${post.data.title} — Viraj Singh`} description={post.data.description}>
+  <main class="px-6 py-16 max-w-2xl mx-auto">
+
+    <a href="/" class="inline-flex items-center gap-1.5 text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors mb-10">
+      ← Back
+    </a>
+
+    <header class="mb-10">
+      <div class="flex flex-wrap gap-1.5 mb-4">
+        {post.data.tags.map(tag => (
+          <span class="text-xs px-2 py-0.5 rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-500">{tag}</span>
+        ))}
+      </div>
+      <h1 class="text-2xl font-semibold text-neutral-900 dark:text-white leading-snug">{post.data.title}</h1>
+      <p class="text-sm text-neutral-500 mt-2">{formatDate(post.data.date)}</p>
+    </header>
+
+    <article class="prose prose-sm max-w-none dark:prose-invert
+      prose-headings:font-semibold
+      prose-headings:text-neutral-900 dark:prose-headings:text-white
+      prose-p:text-neutral-700 dark:prose-p:text-neutral-300 prose-p:leading-relaxed
+      prose-a:text-neutral-900 dark:prose-a:text-white prose-a:underline prose-a:underline-offset-2
+      prose-strong:text-neutral-900 dark:prose-strong:text-white
+      prose-li:text-neutral-700 dark:prose-li:text-neutral-300
+      prose-hr:border-neutral-200 dark:prose-hr:border-neutral-800
+      prose-code:text-neutral-800 dark:prose-code:text-neutral-200 prose-code:bg-neutral-100 dark:prose-code:bg-neutral-800 prose-code:px-1 prose-code:rounded">
+      <Content />
+    </article>
+
+  </main>
+</Layout>
