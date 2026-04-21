@@ -3,6 +3,7 @@ export interface WorkExperience {
   role: string;
   description: string;
   url?: string;
+  logo?: string;
   period?: string;
 }
 
@@ -12,6 +13,7 @@ export const work: WorkExperience[] = [
     role: 'Summer Associate, Investing',
     description: 'EdTech and Future of Work investing as a Summer Associate.',
     url: 'https://reachcapital.com',
+    logo: '/logos/reach-capital.png',
     period: 'Jun 2024 – Aug 2024',
   },
   {
@@ -19,6 +21,7 @@ export const work: WorkExperience[] = [
     role: 'GTM, Strategy & Ops',
     description: 'Avataar offers a 3D genAI and computer vision platform to help brands tell stories about their products.',
     url: 'https://avataar.me',
+    logo: '/logos/avataar.jpg',
     period: '2022 – 2024',
   },
   {
@@ -26,6 +29,7 @@ export const work: WorkExperience[] = [
     role: 'Management Consulting',
     description: 'Went deep on utilities & semiconductors.',
     url: 'https://bain.com',
+    logo: '/logos/bain.jpg',
     period: '2019 – 2022',
   },
   {
@@ -33,6 +37,7 @@ export const work: WorkExperience[] = [
     role: 'Teaching',
     description: 'Taught underserved 8th graders physics.',
     url: 'https://breakthroughcollaborative.org',
+    logo: '/logos/breakthrough.png',
     period: '2019',
   },
   {
@@ -40,6 +45,7 @@ export const work: WorkExperience[] = [
     role: 'GTM',
     description: 'Go-to-market work at a leading residential solar and energy storage company.',
     url: 'https://enphase.com',
+    logo: '/logos/enphase.png',
     period: '2016',
   },
 ];
