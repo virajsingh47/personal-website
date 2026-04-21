@@ -3,7 +3,6 @@ export interface WorkExperience {
   role: string;
   description: string;
   url?: string;
-  logo?: string;
   period?: string;
 }
 
@@ -13,7 +12,6 @@ export const work: WorkExperience[] = [
     role: 'Summer Associate, Investing',
     description: 'EdTech and Future of Work investing as a Summer Associate.',
     url: 'https://reachcapital.com',
-    logo: 'https://logo.clearbit.com/reachcapital.com',
     period: 'Jun 2024 – Aug 2024',
   },
   {
@@ -21,7 +19,6 @@ export const work: WorkExperience[] = [
     role: 'GTM, Strategy & Ops',
     description: 'Avataar offers a 3D genAI and computer vision platform to help brands tell stories about their products.',
     url: 'https://avataar.me',
-    logo: 'https://logo.clearbit.com/avataar.me',
     period: '2022 – 2024',
   },
   {
@@ -29,7 +26,6 @@ export const work: WorkExperience[] = [
     role: 'Management Consulting',
     description: 'Went deep on utilities & semiconductors.',
     url: 'https://bain.com',
-    logo: 'https://logo.clearbit.com/bain.com',
     period: '2019 – 2022',
   },
   {
@@ -37,7 +33,6 @@ export const work: WorkExperience[] = [
     role: 'Teaching',
     description: 'Taught underserved 8th graders physics.',
     url: 'https://breakthroughcollaborative.org',
-    logo: 'https://logo.clearbit.com/breakthroughcollaborative.org',
     period: '2019',
   },
   {
@@ -45,7 +40,6 @@ export const work: WorkExperience[] = [
     role: 'GTM',
     description: 'Go-to-market work at a leading residential solar and energy storage company.',
     url: 'https://enphase.com',
-    logo: 'https://logo.clearbit.com/enphase.com',
     period: '2016',
   },
 ];

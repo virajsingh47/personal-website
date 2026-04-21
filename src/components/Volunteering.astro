@@ -1,5 +1,9 @@
 ---
 import { volunteering } from '../data/volunteering';
+
+function initials(name: string) {
+  return name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+}
 ---
 
 <section id="volunteering" class="px-6 pb-16 max-w-2xl mx-auto">
@@ -15,15 +19,11 @@ import { volunteering } from '../data/volunteering';
         rel="noopener noreferrer"
         class="group flex items-start gap-4 rounded-xl p-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
       >
-        <div class="w-10 h-10 rounded-lg bg-white border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-xl shrink-0 overflow-hidden">
-          {role.logo?.startsWith('http')
-            ? <img src={role.logo} alt={role.org} class="w-8 h-8 object-contain" />
-            : (role.logo ?? '🤝')}
+        <div class="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center shrink-0">
+          <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400">{initials(role.org)}</span>
         </div>
         <div class="min-w-0 flex-1">
-          <div class="flex items-center justify-between gap-2">
-            <p class="text-sm font-medium text-neutral-900 dark:text-white">{role.org}</p>
-          </div>
+          <p class="text-sm font-medium text-neutral-900 dark:text-white">{role.org}</p>
           <p class="text-xs text-neutral-500 mt-0.5">{role.role}</p>
           {role.description && (
             <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1.5 leading-relaxed">{role.description}</p>
