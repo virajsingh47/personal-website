@@ -24,4 +24,10 @@ export const projects: Project[] = [
     url: 'https://interview-simulator-alpha.vercel.app/',
     icon: '🎙️',
   },
+  {
+    name: 'Meditation App',
+    description: 'Made an app to help me practice transcendental meditation.',
+    url: 'https://meditation-app-eight-nu.vercel.app/',
+    icon: '🧘',
+  },
 ];
